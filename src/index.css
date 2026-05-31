@@ -13,7 +13,8 @@
   --shadow-sm: 0 8px 24px rgba(0,0,0,.06);
   --shadow-md: 0 14px 38px rgba(0,0,0,.10);
   --shadow-lg: 0 30px 70px rgba(0,0,0,.14);
-  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font: 'Oxygen', sans-serif;
   --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 
@@ -22,6 +23,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font);
+  font-size: 16px;
   background-color: var(--bg);
   background-image: radial-gradient(circle at 50% 0%, rgba(0,0,0,0.045), transparent 34%);
   background-size: auto;
@@ -38,11 +40,12 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
 
 /* ─── Typography ───────────────────────────────────────────── */
-h1 { font-size: clamp(2.6rem, 5.2vw, 4.6rem); font-weight: 800; letter-spacing: -0.055em; line-height: 0.98; }
-h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1.05; }
-h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -0.015em; }
-h4 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
-p { color: var(--muted); line-height: 1.75; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+h1 { font-size: clamp(2.6rem, 5.2vw, 4.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 700; letter-spacing: -0.01em; }
+h4 { font-size: 1rem; font-weight: 700; letter-spacing: 0em; }
+p { color: var(--muted); line-height: 1.75; font-family: var(--font); }
 
 /* ─── Layout ───────────────────────────────────────────────── */
 .app { min-height: 100vh; display: flex; flex-direction: column; }
@@ -235,7 +238,9 @@ main { flex: 1; display: flex; flex-direction: column; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 13px 26px; border-radius: 10px;
-  font-size: 0.95rem; font-weight: 700; letter-spacing: -0.02em;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.03em;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   transition: var(--transition);
   white-space: nowrap;
 }
@@ -317,7 +322,8 @@ main { flex: 1; display: flex; flex-direction: column; }
 }
 .header-logo {
   display: flex; align-items: center; gap: 10px;
-  font-size: 1.6rem; font-weight: 900; letter-spacing: -0.06em;
+  font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em;
+  font-family: var(--font-heading);
   color: #000; flex-shrink: 0;
 }
 .header-logo img { height: 28px; width: auto; }
@@ -333,7 +339,8 @@ main { flex: 1; display: flex; flex-direction: column; }
 .header-nav { display: flex; align-items: center; gap: 22px; }
 .header-nav a,
 .nav-dropdown-trigger {
-  font-size: 0.94rem; font-weight: 700; color: #111;
+  font-size: 0.88rem; font-weight: 700; color: #111;
+  font-family: var(--font-heading); letter-spacing: 0.01em;
   padding: 8px 6px; border-radius: 8px;
   transition: var(--transition);
 }
