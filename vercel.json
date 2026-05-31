@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/halla-crm-cloude/:path*",
+      "destination": "/halla-crm-cloude/index.html"
+    },
+    {
+      "source": "/((?!halla-crm-cloude).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

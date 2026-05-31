@@ -24,7 +24,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/ruedio" element={<Ruedio />} />
               <Route path="/ruedio-task" element={<RuedioTask />} />
-              <Route path="/halla-crm" element={<HallaCRM />} />
+              <Route path="/halla-crm" element={<HallaCRM onAuthOpen={() => setAuthOpen(true)} />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
