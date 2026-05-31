@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { X, ArrowRight, Eye, EyeOff } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import LogoMark from './LogoMark'
 
 export default function AuthModal({ onClose }) {
   const { login, register } = useAuth()
+  const navigate = useNavigate()
   const [tab, setTab] = useState('login')
   const [showPass, setShowPass] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
@@ -41,6 +43,7 @@ export default function AuthModal({ onClose }) {
       setLoading(false)
       if (res.error) return setError(res.error)
       onClose()
+      navigate('/dashboard')
     } else {
       if (!form.email.trim()) return setError('Please enter your email.')
       if (!form.password) return setError('Please enter your password.')
@@ -50,6 +53,7 @@ export default function AuthModal({ onClose }) {
       setLoading(false)
       if (res.error) return setError(res.error)
       onClose()
+      navigate('/dashboard')
     }
   }
 

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import Header from './components/Header'
@@ -10,6 +10,32 @@ import RuedioTask from './pages/RuedioTask'
 import HallaCRM from './pages/HallaCRM'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import UserDashboard from './pages/UserDashboard'
+
+// Wrapper that hides Header/Footer on /dashboard
+function AppShell({ authOpen, setAuthOpen }) {
+  const location = useLocation()
+  const isDashboard = location.pathname.startsWith('/dashboard')
+
+  return (
+    <div className="app">
+      {!isDashboard && <Header onAuthOpen={() => setAuthOpen(true)} />}
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ruedio" element={<Ruedio />} />
+          <Route path="/ruedio-task" element={<RuedioTask />} />
+          <Route path="/halla-crm" element={<HallaCRM onAuthOpen={() => setAuthOpen(true)} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<UserDashboard />} />
+        </Routes>
+      </main>
+      {!isDashboard && <Footer />}
+      {authOpen && <AuthModal onClose={() => setAuthOpen(false)} />}
+    </div>
+  )
+}
 
 export default function App() {
   const [authOpen, setAuthOpen] = useState(false)
@@ -17,21 +43,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div className="app">
-          <Header onAuthOpen={() => setAuthOpen(true)} />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/ruedio" element={<Ruedio />} />
-              <Route path="/ruedio-task" element={<RuedioTask />} />
-              <Route path="/halla-crm" element={<HallaCRM onAuthOpen={() => setAuthOpen(true)} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </main>
-          <Footer />
-          {authOpen && <AuthModal onClose={() => setAuthOpen(false)} />}
-        </div>
+        <AppShell authOpen={authOpen} setAuthOpen={setAuthOpen} />
       </BrowserRouter>
     </AuthProvider>
   )

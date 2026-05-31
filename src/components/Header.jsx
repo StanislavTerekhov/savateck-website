@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
-import { ArrowRight, ChevronDown, LogOut, User } from 'lucide-react'
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
+import { ArrowRight, ChevronDown, LayoutDashboard, LogOut, User } from 'lucide-react'
 import LogoMark from './LogoMark'
 import { useAuth } from '../context/AuthContext'
 
@@ -20,6 +20,7 @@ const ruedioFamilyLinks = [
 
 export default function Header({ onAuthOpen }) {
   const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [familyOpen, setFamilyOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
@@ -54,6 +55,7 @@ export default function Header({ onAuthOpen }) {
   function handleLogout() {
     logout()
     setUserMenuOpen(false)
+    navigate('/')
   }
 
   const initials = user
@@ -130,6 +132,10 @@ export default function Header({ onAuthOpen }) {
                       </div>
                     </div>
                     <div className="user-dropdown-divider" />
+                    <Link to="/dashboard" className="user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
+                      <LayoutDashboard size={14} />
+                      My Space
+                    </Link>
                     <button className="user-dropdown-item" onClick={handleLogout}>
                       <LogOut size={14} />
                       Sign Out
