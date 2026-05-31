@@ -21,13 +21,15 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Restore session on mount
+    // Clear old localStorage keys from pre-Supabase system
+    localStorage.removeItem('savateck_user')
+    localStorage.removeItem('savateck_users')
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(normalize(session?.user ?? null))
       setLoading(false)
     })
 
-    // Listen for sign-in / sign-out / token refresh
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(normalize(session?.user ?? null))
     })
@@ -39,7 +41,10 @@ export function AuthProvider({ children }) {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: { data: { full_name: name } },
+      options: {
+        data: { full_name: name },
+        emailRedirectTo: `${window.location.origin}/dashboard`,
+      },
     })
     if (error) return { error: error.message }
     return { ok: true }
@@ -47,7 +52,7 @@ export function AuthProvider({ children }) {
 
   async function login({ email, password }) {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) return { error: 'Incorrect email or password.' }
+    if (error) return { error: error.message }
     return { ok: true }
   }
 
