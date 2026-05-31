@@ -1,62 +1,62 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
 
 const AuthContext = createContext(null)
 
+function normalize(supabaseUser) {
+  if (!supabaseUser) return null
+  return {
+    id:        supabaseUser.id,
+    email:     supabaseUser.email,
+    name:      supabaseUser.user_metadata?.full_name
+                 || supabaseUser.user_metadata?.name
+                 || supabaseUser.email?.split('@')[0]
+                 || 'User',
+    createdAt: supabaseUser.created_at,
+  }
+}
+
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    try {
-      const stored = localStorage.getItem('savateck_user')
-      return stored ? JSON.parse(stored) : null
-    } catch {
-      return null
-    }
-  })
-
-  const [users, setUsers] = useState(() => {
-    try {
-      const stored = localStorage.getItem('savateck_users')
-      return stored ? JSON.parse(stored) : []
-    } catch {
-      return []
-    }
-  })
+  const [user, setUser]       = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (user) localStorage.setItem('savateck_user', JSON.stringify(user))
-    else localStorage.removeItem('savateck_user')
-  }, [user])
+    // Restore session on mount
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(normalize(session?.user ?? null))
+      setLoading(false)
+    })
 
-  useEffect(() => {
-    localStorage.setItem('savateck_users', JSON.stringify(users))
-  }, [users])
+    // Listen for sign-in / sign-out / token refresh
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(normalize(session?.user ?? null))
+    })
 
-  function register({ name, email, password }) {
-    if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
-      return { error: 'An account with this email already exists.' }
-    }
-    const newUser = { id: Date.now(), name, email, password, createdAt: new Date().toISOString() }
-    setUsers(prev => [...prev, newUser])
-    const { password: _, ...safeUser } = newUser
-    setUser(safeUser)
+    return () => subscription.unsubscribe()
+  }, [])
+
+  async function register({ name, email, password }) {
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name: name } },
+    })
+    if (error) return { error: error.message }
     return { ok: true }
   }
 
-  function login({ email, password }) {
-    const found = users.find(
-      u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
-    )
-    if (!found) return { error: 'Incorrect email or password.' }
-    const { password: _, ...safeUser } = found
-    setUser(safeUser)
+  async function login({ email, password }) {
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) return { error: 'Incorrect email or password.' }
     return { ok: true }
   }
 
-  function logout() {
-    setUser(null)
+  async function logout() {
+    await supabase.auth.signOut()
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, register }}>
+    <AuthContext.Provider value={{ user, loading, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   )
