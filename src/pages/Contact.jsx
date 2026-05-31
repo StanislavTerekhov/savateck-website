@@ -72,7 +72,7 @@ export default function Contact() {
                   </div>
                   {status === 'error' && (
                     <p style={{ fontSize: '0.875rem', color: '#dc2626', background: '#fef2f2', border: '1px solid #fecaca', padding: '10px 14px', borderRadius: 10, margin: 0 }}>
-                      Something went wrong. Please try again or email us directly at hello@savateck.com
+                      Something went wrong. Please try again or email us directly at ceo@savateck.com
                     </p>
                   )}
                   <button type="submit" className="btn btn-primary form-submit" disabled={status === 'sending'}>
@@ -95,14 +95,14 @@ export default function Contact() {
                 <div className="contact-detail-icon"><Mail size={16} color="#fff" /></div>
                 <div className="contact-detail-text">
                   <strong>Email</strong>
-                  hello@savateck.com
+                  ceo@savateck.com
                 </div>
               </div>
               <div className="contact-detail">
                 <div className="contact-detail-icon"><Phone size={16} color="#fff" /></div>
                 <div className="contact-detail-text">
                   <strong>Phone</strong>
-                  +1 (555) 000-0000
+                  +1 (213) 676-9328
                 </div>
               </div>
               <div className="response-card">
