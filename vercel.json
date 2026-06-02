@@ -5,6 +5,14 @@
       "destination": "/halla-crm-cloude/index.html"
     },
     {
+      "source": "/ruedio",
+      "destination": "/ruedio/index.html"
+    },
+    {
+      "source": "/ruedio/",
+      "destination": "/ruedio/index.html"
+    },
+    {
       "source": "/ruedio/:path*",
       "destination": "/ruedio/index.html"
     },
