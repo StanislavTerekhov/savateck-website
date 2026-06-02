@@ -5,19 +5,19 @@
       "destination": "/halla-crm-cloude/index.html"
     },
     {
-      "source": "/ruedio",
-      "destination": "/ruedio/index.html"
+      "source": "/ruedio/app",
+      "destination": "/ruedio/app/index.html"
     },
     {
-      "source": "/ruedio/",
-      "destination": "/ruedio/index.html"
+      "source": "/ruedio/app/",
+      "destination": "/ruedio/app/index.html"
     },
     {
-      "source": "/ruedio/:path*",
-      "destination": "/ruedio/index.html"
+      "source": "/ruedio/app/:path*",
+      "destination": "/ruedio/app/index.html"
     },
     {
-      "source": "/((?!halla-crm-cloude|ruedio).*)",
+      "source": "/((?!halla-crm-cloude).*)",
       "destination": "/index.html"
     }
   ]
