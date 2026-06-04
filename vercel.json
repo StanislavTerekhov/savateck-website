@@ -17,6 +17,18 @@
       "destination": "/ruedio/app/index.html"
     },
     {
+      "source": "/ruedio-task/app",
+      "destination": "/ruedio-task/app/index.html"
+    },
+    {
+      "source": "/ruedio-task/app/",
+      "destination": "/ruedio-task/app/index.html"
+    },
+    {
+      "source": "/ruedio-task/app/:path*",
+      "destination": "/ruedio-task/app/index.html"
+    },
+    {
       "source": "/((?!halla-crm-cloude).*)",
       "destination": "/index.html"
     }
