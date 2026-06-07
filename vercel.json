@@ -5,6 +5,10 @@
       "destination": "https://ruedio-crm-dd5463zeka-uc.a.run.app/halla-crm-cloude"
     },
     {
+      "source": "/halla-crm-cloude/",
+      "destination": "https://ruedio-crm-dd5463zeka-uc.a.run.app/halla-crm-cloude/"
+    },
+    {
       "source": "/halla-crm-cloude/:path*",
       "destination": "https://ruedio-crm-dd5463zeka-uc.a.run.app/halla-crm-cloude/:path*"
     },
