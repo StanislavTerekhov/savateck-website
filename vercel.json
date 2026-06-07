@@ -5,6 +5,14 @@
       "destination": "/halla-crm-cloude/index.html"
     },
     {
+      "source": "/ruedio/privacy",
+      "destination": "/ruedio/privacy.html"
+    },
+    {
+      "source": "/ruedio/terms",
+      "destination": "/ruedio/terms.html"
+    },
+    {
       "source": "/ruedio/app",
       "destination": "/ruedio/app/index.html"
     },
