@@ -1667,3 +1667,135 @@ section,
 @media (min-width: 900px) {
   .ud-apps-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ─── Legal Pages (Privacy & Terms) ────────────────────────── */
+.legal-page {
+  padding: 80px 0 120px;
+}
+
+.legal-header {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.legal-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--graphite);
+  margin: 16px 0 12px;
+}
+
+.legal-meta {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-family: var(--font);
+}
+
+.legal-body {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legal-body h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--graphite);
+  letter-spacing: -0.015em;
+  margin-top: 16px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.legal-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--graphite);
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
+.legal-body p {
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  line-height: 1.78;
+  color: #444;
+}
+
+.legal-body ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legal-body ul li {
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.legal-body a {
+  color: var(--graphite);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-body a:hover {
+  opacity: 0.7;
+}
+
+.legal-body strong {
+  color: var(--graphite);
+  font-weight: 600;
+}
+
+.legal-contact-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legal-contact-card p {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.legal-page-nav {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.legal-page-nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--graphite);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity var(--transition);
+}
+
+.legal-page-nav-link:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .legal-page { padding: 48px 0 80px; }
+  .legal-header { margin-bottom: 40px; }
+  .legal-body h2 { padding-top: 20px; }
+}

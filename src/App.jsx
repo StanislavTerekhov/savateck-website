@@ -11,6 +11,8 @@ import HallaCRM from './pages/HallaCRM'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import UserDashboard from './pages/UserDashboard'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 // Wrapper that hides Header/Footer on /dashboard
 function AppShell({ authOpen, setAuthOpen }) {
@@ -29,6 +31,8 @@ function AppShell({ authOpen, setAuthOpen }) {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </main>
       {!isDashboard && <Footer />}
