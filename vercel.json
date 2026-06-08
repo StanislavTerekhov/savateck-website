@@ -13,6 +13,14 @@
       "destination": "https://ruedio-crm-dd5463zeka-uc.a.run.app/halla-crm-cloude/:path*"
     },
     {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
       "source": "/ruedio/privacy",
       "destination": "/ruedio/privacy.html"
     },
