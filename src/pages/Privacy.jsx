@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 const EFFECTIVE_DATE = 'June 8, 2025'
-const CONTACT_EMAIL = 'legal@savateck.com'
-const COMPANY = 'Savateck LLC'
+const CONTACT_EMAIL = 'ceo@savateck.com'
+const COMPANY = 'Savateck Corp'
 
 export default function Privacy() {
   return (
