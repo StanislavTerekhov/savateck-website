@@ -104,7 +104,7 @@
 .home-logo-stage {
   position: absolute;
   left: 50%;
-  top: 18px;
+  top: 96px;
   transform: translateX(-50%);
   width: min(152px, 16vw);
   display: flex;
@@ -117,7 +117,7 @@
   width: 100%;
   height: auto;
   overflow: visible;
-  transform: scale(2.82);
+  transform: none;
   transform-origin: center;
 }
 
