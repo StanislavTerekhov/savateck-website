@@ -106,11 +106,11 @@
   left: 50%;
   top: 18px;
   transform: translateX(-50%);
-  width: min(190px, 20vw);
+  width: min(152px, 16vw);
   display: flex;
   justify-content: center;
   filter: drop-shadow(0 26px 28px rgba(0,0,0,0.14));
-  z-index: 2;
+  z-index: 0;
 }
 
 .home-logo-stage svg {
@@ -1647,7 +1647,7 @@
   }
 
   .home-logo-stage {
-    width: min(170px, 40vw);
+    width: min(136px, 32vw);
     margin: 0 auto;
     order: 1;
   }
@@ -1812,7 +1812,7 @@
   }
 
   .home-logo-stage {
-    width: min(170px, 50vw);
+    width: min(136px, 40vw);
   }
 
   .home-logo-stage svg {
