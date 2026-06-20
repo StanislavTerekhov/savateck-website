@@ -106,7 +106,7 @@
   left: 50%;
   top: 18px;
   transform: translateX(-50%);
-  width: min(430px, 36vw);
+  width: min(190px, 20vw);
   display: flex;
   justify-content: center;
   filter: drop-shadow(0 26px 28px rgba(0,0,0,0.14));
@@ -1647,7 +1647,7 @@
   }
 
   .home-logo-stage {
-    width: min(260px, 60vw);
+    width: min(170px, 40vw);
     margin: 0 auto;
     order: 1;
   }
@@ -1812,11 +1812,11 @@
   }
 
   .home-logo-stage {
-    width: min(260px, 66vw);
+    width: min(170px, 50vw);
   }
 
   .home-logo-stage svg {
-    transform: scale(2.35);
+    transform: none;
   }
 
   .home-product-card {

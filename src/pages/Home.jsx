@@ -91,7 +91,7 @@ export default function Home() {
             </div>
 
             <div className="home-logo-stage" aria-hidden="true">
-              <LogoMark size={430} color="#000" />
+              <LogoMark size={200} color="#000" />
             </div>
 
             <div className="home-family-module">
