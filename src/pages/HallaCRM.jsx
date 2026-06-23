@@ -123,7 +123,7 @@ export default function HallaCRM({ onAuthOpen }) {
 
   function handleGoToCRM() {
     if (user) {
-      window.location.href = '/halla-crm-cloude/'
+      window.location.href = '/halla-crm-cloude/login'
     } else {
       onAuthOpen?.()
     }

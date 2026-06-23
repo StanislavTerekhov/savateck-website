@@ -32,10 +32,10 @@ const APPS = [
   {
     id: 'halla-crm',
     label: 'Halla CRM',
-    sub: 'Operations Platform',
-    desc: 'Manage bookings, providers, revenue, and support across your entire operation in real time.',
+    sub: 'Your workspace',
+    desc: 'Manage your contacts, deals, and tasks in your own private workspace. Invite your team to collaborate.',
     icon: LayoutDashboard,
-    href: '/halla-crm-cloude/',
+    href: '/halla-crm-cloude/login',
     external: true,
     color: '#111111',
     bg: '#F2F2F7',
