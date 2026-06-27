@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import LogoMark from './LogoMark'
 
-export default function AuthModal({ onClose }) {
+export default function AuthModal({ onClose, initialTab = 'login' }) {
   const { login, register } = useAuth()
   const navigate = useNavigate()
 
-  const [tab, setTab] = useState('login')
+  const [tab, setTab] = useState(initialTab)
   const [showPass, setShowPass] = useState(false)
   const [showConfirm, setShowConfirm] = useState(false)
   const [error, setError] = useState('')
@@ -190,9 +190,9 @@ export default function AuthModal({ onClose }) {
         </form>
 
         <p className="auth-switch">
-          {tab === 'login' ? 'No account? ' : 'Already have an account? '}
+          {tab === 'login' ? "Don't have an account? " : 'Already have an account? '}
           <button type="button" onClick={() => switchTab(tab === 'login' ? 'register' : 'login')}>
-            {tab === 'login' ? 'Register' : 'Sign In'}
+            {tab === 'login' ? 'Sign up' : 'Log in'}
           </button>
         </p>
       </div>

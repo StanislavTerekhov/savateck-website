@@ -14,16 +14,21 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 
 // Wrapper that hides Header/Footer on /dashboard
-function AppShell({ authOpen, setAuthOpen }) {
+function AppShell({ authOpen, setAuthOpen, authTab, setAuthTab }) {
   const location = useLocation()
   const isDashboard = location.pathname.startsWith('/dashboard')
 
+  function openAuth(tab = 'login') {
+    setAuthTab(tab)
+    setAuthOpen(true)
+  }
+
   return (
     <div className="app">
-      {!isDashboard && <Header onAuthOpen={() => setAuthOpen(true)} />}
+      {!isDashboard && <Header onAuthOpen={() => openAuth('login')} />}
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home onOpenAuth={openAuth} />} />
           <Route path="/ruedio" element={<Ruedio />} />
           <Route path="/ruedio-task" element={<RuedioTask />} />
           <Route path="/about" element={<About />} />
@@ -34,18 +39,19 @@ function AppShell({ authOpen, setAuthOpen }) {
         </Routes>
       </main>
       {!isDashboard && <Footer />}
-      {authOpen && <AuthModal onClose={() => setAuthOpen(false)} />}
+      {authOpen && <AuthModal initialTab={authTab} onClose={() => setAuthOpen(false)} />}
     </div>
   )
 }
 
 export default function App() {
   const [authOpen, setAuthOpen] = useState(false)
+  const [authTab, setAuthTab] = useState('login')
 
   return (
     <AuthProvider>
       <BrowserRouter>
-        <AppShell authOpen={authOpen} setAuthOpen={setAuthOpen} />
+        <AppShell authOpen={authOpen} setAuthOpen={setAuthOpen} authTab={authTab} setAuthTab={setAuthTab} />
       </BrowserRouter>
     </AuthProvider>
   )

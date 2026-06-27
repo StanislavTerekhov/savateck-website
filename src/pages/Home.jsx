@@ -19,7 +19,7 @@ const products = [
   },
 ]
 
-export default function Home() {
+export default function Home({ onOpenAuth }) {
   return (
     <div className="home-page">
       <section className="home-simple">
@@ -30,15 +30,15 @@ export default function Home() {
           </div>
 
           <div className="home-simple-products">
-            {products.map(({ key, icon: Icon, title, tag, desc, app }) => (
+            {products.map(({ key, icon: Icon, title, tag, desc }) => (
               <div className="home-simple-card" key={key}>
                 <span className="home-product-icon"><Icon size={26} /></span>
                 <span className="home-simple-tag">{tag}</span>
                 <h2>{title}</h2>
                 <p>{desc}</p>
                 <div className="home-simple-actions">
-                  <a href={app} className="btn btn-primary">Join</a>
-                  <a href={app} className="btn btn-secondary">Login</a>
+                  <button className="btn btn-primary" onClick={() => onOpenAuth('register')}>Join</button>
+                  <button className="btn btn-secondary" onClick={() => onOpenAuth('login')}>Login</button>
                 </div>
               </div>
             ))}
