@@ -336,7 +336,7 @@ main { flex: 1; display: flex; flex-direction: column; }
   margin-right: 8px;
 }
 
-.header-nav { display: flex; align-items: center; gap: 22px; flex: 1; justify-content: center; }
+.header-nav { display: flex; align-items: center; gap: 22px; position: absolute; left: 50%; transform: translateX(-50%); }
 .header-nav a,
 .nav-dropdown-trigger {
   font-size: 0.88rem; font-weight: 700; color: #111;
