@@ -9,7 +9,7 @@ const navLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
-export default function Header({ onAuthOpen }) {
+export default function Header() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
