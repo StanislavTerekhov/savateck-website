@@ -7,7 +7,6 @@ import AuthModal from './components/AuthModal'
 import Home from './pages/Home'
 import Ruedio from './pages/Ruedio'
 import RuedioTask from './pages/RuedioTask'
-import HallaCRM from './pages/HallaCRM'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import UserDashboard from './pages/UserDashboard'
@@ -27,7 +26,6 @@ function AppShell({ authOpen, setAuthOpen }) {
           <Route path="/" element={<Home />} />
           <Route path="/ruedio" element={<Ruedio />} />
           <Route path="/ruedio-task" element={<RuedioTask />} />
-          <Route path="/halla-crm" element={<HallaCRM onAuthOpen={() => setAuthOpen(true)} />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<UserDashboard />} />

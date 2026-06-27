@@ -1969,3 +1969,44 @@
     font-size: 0.62rem;
   }
 }
+
+/* ── Simplified home (replaces the old ecosystem composition) ── */
+/* padding-top clears the fixed header (top:18px + ~92px tall) like .page-hero */
+.home-simple { padding: 148px 0 96px; }
+.home-simple-hero {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.home-simple-hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); letter-spacing: -0.045em; line-height: 1.05; }
+.home-simple-hero p { color: #333; font-size: 1.05rem; line-height: 1.55; max-width: 520px; }
+.home-simple-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.home-simple-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+.home-simple-card:hover { transform: translateY(-4px); border-color: #000; box-shadow: 0 22px 48px rgba(0,0,0,0.14); }
+.home-simple-tag { color: #777; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.home-simple-card h2 { font-size: 1.4rem; letter-spacing: -0.04em; line-height: 1.1; }
+.home-simple-card p { color: #222; font-size: 0.95rem; line-height: 1.5; flex: 1; margin: 0; }
+.home-simple-actions { display: flex; gap: 10px; margin-top: 10px; }
+.home-simple-actions .btn { padding: 9px 24px; }
+@media (max-width: 680px) { .home-simple-products { grid-template-columns: 1fr; } }

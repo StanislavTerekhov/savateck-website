@@ -1,32 +1,21 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
-import { ArrowRight, ChevronDown, LayoutDashboard, LogOut, User } from 'lucide-react'
 import LogoMark from './LogoMark'
 import { useAuth } from '../context/AuthContext'
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/halla-crm', label: 'Halla CRM' },
   { to: '/about', label: 'About' },
   { to: '/contact', label: 'Contact' },
-]
-
-const [homeLink, ...secondaryNavLinks] = navLinks
-
-const ruedioFamilyLinks = [
-  { to: '/ruedio', label: 'Ruedio', desc: 'Car care app' },
-  { to: '/ruedio-task', label: 'Ruedio Task', desc: 'Task management' },
 ]
 
 export default function Header({ onAuthOpen }) {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
-  const [familyOpen, setFamilyOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const familyActive = location.pathname === '/ruedio' || location.pathname === '/ruedio-task'
   const userMenuRef = useRef(null)
 
   useEffect(() => {
@@ -38,7 +27,6 @@ export default function Header({ onAuthOpen }) {
 
   useEffect(() => {
     setOpen(false)
-    setFamilyOpen(false)
     setUserMenuOpen(false)
   }, [location.pathname])
 
@@ -72,82 +60,19 @@ export default function Header({ onAuthOpen }) {
           </Link>
 
           <nav className="header-nav">
-            <NavLink to={homeLink.to} end className={({ isActive }) => isActive ? 'active' : ''}>
-              {homeLink.label}
-            </NavLink>
-            <div
-              className="nav-dropdown"
-              onMouseEnter={() => setFamilyOpen(true)}
-              onMouseLeave={() => setFamilyOpen(false)}
-              onFocus={() => setFamilyOpen(true)}
-              onBlur={e => {
-                if (!e.currentTarget.contains(e.relatedTarget)) setFamilyOpen(false)
-              }}
-            >
-              <button
-                type="button"
-                className={`nav-dropdown-trigger ${familyActive ? 'active' : ''}`}
-                onClick={() => setFamilyOpen(o => !o)}
-                aria-expanded={familyOpen}
-                aria-controls="ruedio-family-menu"
+            {navLinks.map(l => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === '/'}
+                className={({ isActive }) => isActive ? 'active' : ''}
               >
-                Ruedio Family <ChevronDown size={15} />
-              </button>
-              <div id="ruedio-family-menu" className={`nav-dropdown-menu ${familyOpen ? 'open' : ''}`}>
-                {ruedioFamilyLinks.map(l => (
-                  <NavLink key={l.to} to={l.to} className={({ isActive }) => isActive ? 'active' : ''}>
-                    <span>{l.label}</span>
-                    <small>{l.desc}</small>
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-            {secondaryNavLinks.map(l => (
-              <NavLink key={l.to} to={l.to} className={({ isActive }) => isActive ? 'active' : ''}>
                 {l.label}
               </NavLink>
             ))}
           </nav>
 
           <div className="header-actions">
-            {user ? (
-              <div className="user-menu-wrap" ref={userMenuRef}>
-                <button
-                  className="user-avatar-btn"
-                  onClick={() => setUserMenuOpen(o => !o)}
-                  aria-expanded={userMenuOpen}
-                  aria-label="User menu"
-                >
-                  <span className="user-avatar">{initials}</span>
-                  <span className="user-name">{user.name.split(' ')[0]}</span>
-                  <ChevronDown size={14} />
-                </button>
-                {userMenuOpen && (
-                  <div className="user-dropdown">
-                    <div className="user-dropdown-info">
-                      <span className="user-avatar user-avatar-lg">{initials}</span>
-                      <div>
-                        <p className="user-dropdown-name">{user.name}</p>
-                        <p className="user-dropdown-email">{user.email}</p>
-                      </div>
-                    </div>
-                    <div className="user-dropdown-divider" />
-                    <Link to="/dashboard" className="user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
-                      <LayoutDashboard size={14} />
-                      My Space
-                    </Link>
-                    <button className="user-dropdown-item" onClick={handleLogout}>
-                      <LogOut size={14} />
-                      Sign Out
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <button className="btn btn-primary header-cta" onClick={onAuthOpen}>
-                Sign In / Register <ArrowRight size={18} />
-              </button>
-            )}
             <button
               className={`burger ${open ? 'open' : ''}`}
               onClick={() => setOpen(o => !o)}
@@ -161,39 +86,11 @@ export default function Header({ onAuthOpen }) {
         </div>
 
         <nav id="mobile-navigation" className={`mobile-nav ${open ? 'open' : ''}`}>
-          <NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink>
-          <div className="mobile-family">
-            <button
-              type="button"
-              className={`mobile-family-trigger ${familyActive ? 'active' : ''}`}
-              onClick={() => setFamilyOpen(o => !o)}
-              aria-expanded={familyOpen}
-              aria-controls="mobile-ruedio-family"
-            >
-              Ruedio Family <ChevronDown size={16} />
-            </button>
-            <div id="mobile-ruedio-family" className={`mobile-family-menu ${familyOpen ? 'open' : ''}`}>
-              {ruedioFamilyLinks.map(l => (
-                <NavLink key={l.to} to={l.to} onClick={() => setOpen(false)}>
-                  {l.label}
-                </NavLink>
-              ))}
-            </div>
-          </div>
-          {secondaryNavLinks.map(l => (
-            <NavLink key={l.to} to={l.to} onClick={() => setOpen(false)}>
+          {navLinks.map(l => (
+            <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={() => setOpen(false)}>
               {l.label}
             </NavLink>
           ))}
-          {user ? (
-            <button className="btn btn-secondary" style={{ justifyContent: 'center' }} onClick={() => { handleLogout(); setOpen(false) }}>
-              <LogOut size={16} /> Sign Out
-            </button>
-          ) : (
-            <button className="btn btn-primary" style={{ justifyContent: 'center' }} onClick={() => { onAuthOpen(); setOpen(false) }}>
-              Sign In / Register <ArrowRight size={18} />
-            </button>
-          )}
         </nav>
       </div>
     </header>
