@@ -7,8 +7,8 @@ const products = [
     title: 'Ruedio',
     tag: 'Car Care App',
     desc: 'Everything your car needs in one app — maintenance tracking, smart reminders, and on-demand service.',
-    join: '/ruedio/app/auth?start=phone',
-    login: '/ruedio/app',
+    join: '/ruedio/app/auth?mode=signup',
+    login: '/ruedio/app/auth?mode=signin',
   },
   {
     key: 'ruedioTask',
@@ -16,8 +16,8 @@ const products = [
     title: 'Ruedio Task',
     tag: 'Task Management',
     desc: "Manage tasks and streamline your team's workflow with simple visual boards and assignments.",
-    join: '/ruedio-task/app/auth?start=phone',
-    login: '/ruedio-task/app',
+    join: '/ruedio-task/app/auth?mode=signup',
+    login: '/ruedio-task/app/auth?mode=signin',
   },
 ]
 
