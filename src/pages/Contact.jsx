@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowRight, Mail, Phone } from 'lucide-react'
+import Seo from '../components/Seo'
 import LogoMark from '../components/LogoMark'
 
 const FORMSPREE_URL = 'https://formspree.io/f/xzdwqgqw'
@@ -31,6 +32,11 @@ export default function Contact() {
 
   return (
     <div className="page-shell">
+      <Seo
+        title="Contact"
+        path="/contact"
+        description="Get in touch with SAVATECK — questions, partnerships, or support for Ruedio and our products."
+      />
       <section className="section">
         <div className="container">
           <div className="section-title section-title-loose fade-up">

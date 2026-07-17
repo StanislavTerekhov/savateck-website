@@ -1,4 +1,5 @@
 import { Radio, ClipboardCheck } from 'lucide-react'
+import Seo from '../components/Seo'
 
 const products = [
   {
@@ -24,6 +25,10 @@ const products = [
 export default function Home() {
   return (
     <div className="home-page">
+      <Seo
+        path="/"
+        description="SAVATECK builds intelligent software and modern business tools, including Ruedio — an on-demand car-care marketplace connecting customers with verified local pros."
+      />
       <section className="home-simple">
         <div className="container">
           <div className="home-simple-hero">

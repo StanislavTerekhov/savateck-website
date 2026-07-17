@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /halla-crm-cloude
+
+Sitemap: https://savateck.com/sitemap.xml

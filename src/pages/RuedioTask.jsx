@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Gauge, ShieldCheck, Smartphone } from 'lucide-react'
+import Seo from '../components/Seo'
 
 const HIGHLIGHTS = [
   {
@@ -32,6 +33,11 @@ export default function RuedioTask() {
 
   return (
     <div className="halla-crm-page">
+      <Seo
+        title="Ruedio Task — Earn as a Car Care Pro"
+        path="/ruedio-task"
+        description="Get paid to wash, detail, and service cars near you. Accept jobs on your schedule, navigate to the customer, and cash out. Ruedio Task is the provider app for car-care pros."
+      />
       <section className="page-hero">
         <div className="container">
           <div className="page-hero-inner" style={{ alignItems: 'flex-start' }}>

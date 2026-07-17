@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight, BrainCircuit, Cpu, Infinity, Layers3, ShieldCheck, Sparkles } from 'lucide-react'
 import LogoMark from '../components/LogoMark'
+import Seo from '../components/Seo'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -1020,6 +1021,11 @@ export default function About() {
 
   return (
     <div className={`about-experience${resinReady ? ' is-resin-ready' : ''}`} ref={rootRef}>
+      <Seo
+        title="About"
+        path="/about"
+        description="SAVATECK is a California software company building intelligent products for modern business, including Ruedio — an on-demand car-care marketplace."
+      />
       <div className="about-page-open" aria-hidden="true">
         <div className="about-open-logo">
           <LogoMark size={86} color="#fff" />
