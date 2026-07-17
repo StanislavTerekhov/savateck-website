@@ -1,5 +1,6 @@
 import { ArrowRight, Check } from 'lucide-react'
 import Seo from '../components/Seo'
+import RuedioStructuredData from '../components/RuedioStructuredData'
 
 const SERVICES = [
   { name: 'Mobile Detailing',     desc: 'Full exterior wash, interior deep clean, polish and sealant — at your location.' },
@@ -24,6 +25,7 @@ export default function Ruedio() {
         path="/ruedio"
         description="Book a mobile car wash, detailer, or mechanic who comes to you. Track your pro in real time and pay securely. Ruedio brings professional car care to your door in California."
       />
+      <RuedioStructuredData />
 
       {/* ── Hero ── */}
       <section className="page-hero">
