@@ -1,5 +1,6 @@
 import { Radio, ClipboardCheck } from 'lucide-react'
 import Seo from '../components/Seo'
+import AppStoreBadge from '../components/AppStoreBadge'
 
 const products = [
   {
@@ -10,6 +11,7 @@ const products = [
     desc: 'Everything your car needs in one app — maintenance tracking, smart reminders, and on-demand service.',
     join: '/ruedio/app/auth?mode=signup',
     login: '/ruedio/app/auth?mode=signin',
+    appStore: 'https://apps.apple.com/us/app/ruedio/id6770315163',
   },
   {
     key: 'ruedioTask',
@@ -19,6 +21,7 @@ const products = [
     desc: "Manage tasks and streamline your team's workflow with simple visual boards and assignments.",
     join: '/ruedio-task/app/auth?mode=signup',
     login: '/ruedio-task/app/auth?mode=signin',
+    appStore: 'https://apps.apple.com/us/app/ruedio-task/id6773075233',
   },
 ]
 
@@ -37,7 +40,7 @@ export default function Home() {
           </div>
 
           <div className="home-simple-products">
-            {products.map(({ key, icon: Icon, title, tag, desc, join, login }) => (
+            {products.map(({ key, icon: Icon, title, tag, desc, join, login, appStore }) => (
               <div className="home-simple-card" key={key}>
                 <span className="home-product-icon"><Icon size={26} /></span>
                 <span className="home-simple-tag">{tag}</span>
@@ -47,6 +50,11 @@ export default function Home() {
                   <a href={join} className="btn btn-primary">Join</a>
                   <a href={login} className="btn btn-secondary">Login</a>
                 </div>
+                {appStore && (
+                  <div style={{ marginTop: 12 }}>
+                    <AppStoreBadge href={appStore} label={`Download ${title} on the App Store`} />
+                  </div>
+                )}
               </div>
             ))}
           </div>
