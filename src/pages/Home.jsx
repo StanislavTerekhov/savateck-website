@@ -49,12 +49,10 @@ export default function Home() {
                 <div className="home-simple-actions">
                   <a href={join} className="btn btn-primary">Join</a>
                   <a href={login} className="btn btn-secondary">Login</a>
-                </div>
-                {appStore && (
-                  <div style={{ marginTop: 12 }}>
+                  {appStore && (
                     <AppStoreBadge href={appStore} label={`Download ${title} on the App Store`} />
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </div>

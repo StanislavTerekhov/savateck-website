@@ -2007,6 +2007,10 @@
 .home-simple-tag { color: #777; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .home-simple-card h2 { font-size: 1.4rem; letter-spacing: -0.04em; line-height: 1.1; }
 .home-simple-card p { color: #222; font-size: 0.95rem; line-height: 1.5; flex: 1; margin: 0; }
-.home-simple-actions { display: flex; gap: 10px; margin-top: 10px; }
+.home-simple-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
 .home-simple-actions .btn { padding: 9px 24px; }
+/* App Store badge — matches the 40px button height, keeps its aspect ratio. */
+.appstore-badge { display: inline-flex; height: 40px; line-height: 0; border-radius: 8px; transition: var(--transition); }
+.appstore-badge svg { height: 100%; width: auto; display: block; }
+.appstore-badge:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
 @media (max-width: 680px) { .home-simple-products { grid-template-columns: 1fr; } }
