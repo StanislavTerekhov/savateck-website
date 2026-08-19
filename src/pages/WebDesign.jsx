@@ -3,6 +3,7 @@ import {
   ArrowRight, Check, Gauge, MapPin, Rocket, ShieldCheck, Smartphone, Wrench,
 } from 'lucide-react'
 import Seo from '../components/Seo'
+import WebDesignStructuredData from '../components/WebDesignStructuredData'
 
 const packages = [
   {
@@ -63,10 +64,11 @@ export default function WebDesign() {
   return (
     <div className="wd-page">
       <Seo
-        title="Website Design & Development for Local Business"
+        title="Web Design & Development in Los Angeles"
         path="/web-design"
-        description="SAVATECK builds fast, mobile-first websites for service businesses in Los Angeles — with booking, payments, and local SEO built in. Free website audit."
+        description="Web design and website development for service businesses in Los Angeles. Fast, mobile-first sites with online booking, payments and local SEO. Landing pages from $1,500, business websites from $3,500."
       />
+      <WebDesignStructuredData />
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="wd-hero">
@@ -102,7 +104,7 @@ export default function WebDesign() {
       <section className="wd-section">
         <div className="container">
           <div className="wd-section-head">
-            <h2>Why work with us</h2>
+            <h2>Why choose SAVATECK for your website</h2>
             <p>We are a product company that also builds websites — that difference shows up in the result.</p>
           </div>
           <div className="wd-grid-4">
@@ -121,7 +123,7 @@ export default function WebDesign() {
       <section className="wd-section wd-section-alt" id="packages">
         <div className="container">
           <div className="wd-section-head">
-            <h2>Straightforward pricing</h2>
+            <h2>Website design pricing</h2>
             <p>Fixed scope, fixed price. No hourly surprises.</p>
           </div>
           <div className="wd-grid-3">
@@ -165,6 +167,19 @@ export default function WebDesign() {
                 <p>{text}</p>
               </div>
             ))}
+          </div>
+
+          {/* Service areas — local search relevance and a real answer to
+              "do you work in my city?" */}
+          <div className="wd-areas">
+            <h2>Where we work</h2>
+            <p>
+              SAVATECK is based in Granada Hills and works with service businesses across
+              Los Angeles and the San Fernando Valley — including Northridge, Van Nuys,
+              Sherman Oaks, Woodland Hills, Burbank, Glendale, Pasadena, Santa Monica and
+              Long Beach. We also work remotely with clients elsewhere in California and
+              across the United States.
+            </p>
           </div>
 
           <div className="wd-final">

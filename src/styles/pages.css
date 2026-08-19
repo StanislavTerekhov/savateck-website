@@ -2168,3 +2168,8 @@
   .wd-form-row { grid-template-columns: 1fr; }
   .wd-hero-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* Service areas block on the web design landing page */
+.wd-areas { max-width: 760px; margin: 52px auto 0; text-align: center; }
+.wd-areas h2 { font-size: 1.4rem; letter-spacing: -0.02em; margin: 0 0 12px; }
+.wd-areas p { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin: 0; }

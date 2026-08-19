@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { initAnalytics, trackPageView } from './lib/analytics'
 import { AuthProvider } from './context/AuthContext'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -16,6 +18,12 @@ import Terms from './pages/Terms'
 function AppShell() {
   const location = useLocation()
   const isDashboard = location.pathname.startsWith('/dashboard')
+
+  // Analytics: load once, then report every client-side route change.
+  useEffect(() => { initAnalytics() }, [])
+  useEffect(() => {
+    trackPageView(location.pathname + location.search)
+  }, [location.pathname, location.search])
 
   return (
     <div className="app">
