@@ -33,6 +33,7 @@ export default function Footer() {
             <h4>Solutions</h4>
             <Link to="/ruedio">Ruedio</Link>
             <Link to="/ruedio-task">Ruedio Task</Link>
+            <Link to="/web-design">Web Design</Link>
           </div>
           <div className="footer-col">
             <h4>Company</h4>

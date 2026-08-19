@@ -8,6 +8,7 @@ import Ruedio from './pages/Ruedio'
 import RuedioTask from './pages/RuedioTask'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import WebDesign from './pages/WebDesign'
 import UserDashboard from './pages/UserDashboard'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
@@ -26,6 +27,7 @@ function AppShell() {
           <Route path="/ruedio-task" element={<RuedioTask />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/web-design" element={<WebDesign />} />
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
