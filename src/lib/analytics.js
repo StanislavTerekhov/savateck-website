@@ -1,11 +1,15 @@
 // Google Analytics 4 for a client-side routed SPA.
 //
-// The measurement ID comes from the VITE_GA_ID environment variable, so no
-// tracking runs in development or in a deployment that has not set it.
+// Tracking runs only in production builds, so no
+// development traffic is recorded.
 // React Router changes the URL without a page load, so the initial page_view
 // is disabled here and every view (including the first) is sent manually.
 
-const GA_ID = import.meta.env.VITE_GA_ID
+// GA4 measurement IDs are public by design (they are visible in the page
+// source of every site that uses them), so the production ID lives here.
+// VITE_GA_ID can override it, and tracking stays off in local development so
+// dev traffic never reaches the property.
+const GA_ID = import.meta.env.VITE_GA_ID || (import.meta.env.PROD ? 'G-KSFWY6XB9W' : '')
 let initialized = false
 
 export function initAnalytics() {
